@@ -15,20 +15,21 @@
 	</head>
 	<body>
 		<!-- layout for songs -->
+		<!-- each is a handlebar method to loop through static html -> dynamic place holders {{dynamicContent}} -->
 		<script type="text/x-handlebars">
 			<header><h1>BümBöx</h1></header>
-			// testing app route to template
-			<h5>{{name}}</h5>
 			<div class="album-list">
-				<div class="album">
-					<img src="http://cdn3.rd.io/album/d/b/c/0000000000220cbd/1/square-200.jpg">
-					<p class="album-name">In An Aeroplane Over the Sea</p>
-					<p class="album-artist">Neutral Milk Hotel</p>
-					<p class="song-count">
-					8 songs
-					<span class="explicit">EXPLICIT</span>
-					</p>
-				</div>
+				{{#each}}
+					<div class="album">
+						<img src="http://cdn3.rd.io/album/d/b/c/0000000000220cbd/1/square-200.jpg">
+						<p class="album-name">{{albumName}}</p>
+						<p class="album-artist">{{albumArtist}}}</p>
+						<p class="song-count">
+						8 songs
+						<span class="explicit">EXPLICIT</span>
+						</p>
+					</div>
+				{{/each}}
 			</div>
 		</script>
 		<div id="qunit" style="display: none"></div>
