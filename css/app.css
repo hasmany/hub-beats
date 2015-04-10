@@ -77,10 +77,83 @@ header h1 {
 	margin-left: 12px;
 }
 
-/*.album-info {
-	font-family: "Open Sans", sans-serif;
-	overflow: hidden;
-	-webkit-font-smoothing: antialiased;
+/**/
+.album-info {
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-*/
+
+.album-info img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 15px;
+}
+
+.album-info h1 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #4b5c66;
+  margin-bottom: 8px;
+}
+
+.album-info h2 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #89949b;
+}
+
+.album-listing {
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 18px;
+}
+
+.album-listing tr {
+  border-top: 1px solid #e1e6e9;
+  border-bottom: 1px solid #e1e6e9;
+}
+
+.album-listing td {
+  font-size: 12px;
+  width: 1px;
+  padding: 8px;
+}
+
+.album-listing td.song-track {
+  min-width: 30px;
+}
+
+.album-listing tr.is-playing {
+  background-color: #FCFBBB;
+}
+
+.album-listing td:first-child {
+  color: #89949b;
+  text-align: center;
+  width: 25px;
+}
+
+.album-listing td:nth-child(2) {
+  color: #4b5c66;
+  width: auto;
+}
+
+.album-listing tr td.song-track .play {
+  display: none;
+}
+
+.album-listing tr:hover td.song-track .play {
+  display: block;
+  cursor: pointer;
+}
+
+.album-listing tr td.song-track .track-number {
+  display: block;
+}
+
+.album-listing tr:hover td.song-track .track-number {
+  display: none;
+}
 
