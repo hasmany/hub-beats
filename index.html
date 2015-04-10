@@ -14,22 +14,42 @@
 		<script src="tests/load-tests.js"></script>
 	</head>
 	<body>
-		<!-- layout for songs -->
-		<!-- each is a handlebar method to loop through static html -> dynamic place holders {{dynamicContent}} -->
 	<script type="text/x-handlebars">
 		<header><h1>BümBöx</h1></header>
+		{{outlet}}
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="index">
 		<div class="album-list">
 			{{#each}}
 				<div class="album">
-					<img src="http://cdn3.rd.io/album/d/b/c/0000000000220cbd/1/square-200.jpg">
+					<img {{bindAttr src=artwork}}>
 					<p class="album-name">{{name}}</p>
 					<p class="album-artist">{{artist}}}</p>
 					<p class="song-count">
 					8 songs
-					<span class="explicit">EXPLICIT</span>
+					{{#if isExplicit}}
+						<span class="explicit">EXPLICIT</span>
+					{{/if}}
 					</p>
 				</div>
 			{{/each}}
+		</div>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="album">
+		<div class="album-info">
+				<div class="album">
+					<img {{bindAttr src=artwork}}>
+					<p class="album-name">{{name}}</p>
+					<p class="album-artist">{{artist}}}</p>
+					<p class="song-count">
+					8 songs
+					{{#if isExplicit}}
+						<span class="explicit">EXPLICIT</span>
+					{{/if}}
+					</p>
+				</div>
 		</div>
 	</script>
 	<div id="qunit" style="display: none"></div>
