@@ -41,8 +41,11 @@
     }
   });
 
+  // Ember Data for Song and Album
+  App.Album = Ember.Object.extend();
+  App.Song = Ember.Object.extend();
 
-  // Handlebars helper to display seconsd
+  // Handlebars helper to display seconds
   // Takes number of seconds and displays in MM:SS
   // So 125 = 2:05
   Ember.Handlebars.helper("format-duration",function(time) {
