@@ -46,6 +46,12 @@
   App.AlbumRoute = Ember.Route.extend({
     model: function(params) {
       return App.ALBUM_FIXTURES.findProperty('id',params.album_id);
+    },
+    events: {
+      play: function(song) {
+        window.song = song;
+        this.controllerFor('nowPlaying').set('model',song);
+      }
     }
   });
 

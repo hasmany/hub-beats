@@ -58,14 +58,14 @@
     {{/with}}
 
     <table class="album-listing">
-      {{#each song in songs}}}
+      {{#each  songs}}}
 	      <tr>
 	        <td class="song-track">
-	          <span class="track-number">{{song.track}}}</span>
+	          <span class="track-number">{{track}}}</span>
+            <span class="play" {{action "play" this}}>▶</span>
 	        </td>
-	        <td class="song-name">{{song.name}}}</td>
-	        <td class="song-duration">{{format-duration song.duration}}</td>
-	        <td class="song-album">{{name}}</td>
+	        <td class="song-name">{{name}}}</td>
+	        <td class="song-duration">{{format-duration duration}}</td>
 	      </tr>
       {{/each}}
       <tr>
@@ -83,12 +83,13 @@
 
   <script type="text/x-handlebars" data-template-name="nowPlaying">
     {{#if model}}
+        {{log model}}
       <footer class="now-playing">
         <img class="now-playing-artwork" {{bindAttr src=album.artwork}}>
         <div class="now-playing-body">
           <p class="now-playing-details">
-            <span class="now-playing-name">{{name}}</span> -
-            <span class="now-playing-artist">{{album.artist}}</span>
+            <span class="now-playing-name">{{album.name}}</span>
+            <span class="now-playing-artist">{{name}}</span>
           </p>
           <div class="now-playing-player">
           </div>
