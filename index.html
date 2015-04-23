@@ -16,7 +16,10 @@
 	<body>
 	<script type="text/x-handlebars">
 		<header><h1>BümBöx</h1></header>
+
 		{{outlet}}
+
+    {{render "nowPlaying"}}
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="index">
@@ -77,6 +80,10 @@
 	<script type="text/x-handlebars" data-template-name="album/edit">
 		<p>{{input type="text" value=name}}</p>
 	</script>
+
+  <script type="text/x-handlebars" data-template-name="nowPlaying">
+    <footer class="now-playing"></footer>
+  </script>
 
 	<div id="qunit" style="display: none"></div>
 	<div id="qunit-fixture" style="display: none"></div>
