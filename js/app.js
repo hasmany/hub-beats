@@ -4,6 +4,21 @@
   // Application Instance
 	window.App = Ember.Application.create();
 
+  // Ember Data for Song and Album
+
+  App.Album = Ember.Object.extend({
+    // Computed Property for total duration of an album
+    totalDuration: function() {
+      var duration = 0;
+      var songList = this.get('songs');
+      for (var i = 0; i < songList.length; i++) {
+        duration += songList[i].duration;
+      }
+      return duration;
+    }.property('songs.@each.duration')
+  });
+  App.Song = Ember.Object.extend();
+
   // Main Application Route
   App.ApplicationRoute = Ember.Route.extend({
 
@@ -40,10 +55,6 @@
       return this.modelFor('album');
     }
   });
-
-  // Ember Data for Song and Album
-  App.Album = Ember.Object.extend();
-  App.Song = Ember.Object.extend();
 
   // Handlebars helper to display seconds
   // Takes number of seconds and displays in MM:SS
