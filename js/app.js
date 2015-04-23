@@ -56,6 +56,10 @@
     }
   });
 
+  // Create object controller for nowplaying template
+
+  App.NowPlayingController = Ember.ObjectController.extend();
+
   // Handlebars helper to display seconds
   // Takes number of seconds and displays in MM:SS
   // So 125 = 2:05
