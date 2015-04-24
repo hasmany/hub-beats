@@ -49,7 +49,6 @@
     },
     events: {
       play: function(song) {
-        window.song = song;
         this.controllerFor('nowPlaying').set('model',song);
       }
     }
@@ -62,8 +61,13 @@
     }
   });
 
-  // Create object controller for nowplaying template
 
+  // Audio Component class
+  App.AudioPlayerComponent = Ember.Component.extend({
+    classNames: "audio-control"
+  })
+
+  // Create object controller for nowplaying template
   App.NowPlayingController = Ember.ObjectController.extend();
 
   // Handlebars helper to display seconds

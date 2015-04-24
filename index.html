@@ -83,7 +83,6 @@
 
   <script type="text/x-handlebars" data-template-name="nowPlaying">
     {{#if model}}
-        {{log model}}
       <footer class="now-playing">
         <img class="now-playing-artwork" {{bindAttr src=album.artwork}}>
         <div class="now-playing-body">
@@ -92,6 +91,7 @@
             <span class="now-playing-artist">{{name}}</span>
           </p>
           <div class="now-playing-player">
+            {{audio-player}}
           </div>
         </div>
       </footer>
@@ -100,6 +100,10 @@
         <span class="now-playing-empty">Select a song to start playing.</span>
       </footer>
     {{/if}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="components/audio-player">
+    <audio>
   </script>
 
 	<div id="qunit" style="display: none"></div>
