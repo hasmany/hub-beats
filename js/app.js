@@ -1,120 +1,201 @@
-(function(){
-	"use strict";
+(function() {
+"use strict";
 
-  // Application Instance
-	window.App = Ember.Application.create();
+window.App = Ember.Application.create();
 
-  // Ember Data for Song and Album
+/////////
+// ROUTES
+/////////
 
-  App.Album = Ember.Object.extend({
-    // Computed Property for total duration of an album
-    totalDuration: function() {
-      var duration = 0;
-      var songList = this.get('songs');
-      for (var i = 0; i < songList.length; i++) {
-        duration += songList[i].duration;
-      }
-      return duration;
-    }.property('songs.@each.duration')
-  });
-  App.Song = Ember.Object.extend();
+App.Router.map(function() {
+  this.resource('album', { path: '/album/:album_id' });
+});
 
-  // Main Application Route
-  App.ApplicationRoute = Ember.Route.extend({
+App.IndexRoute = Ember.Route.extend({
+  model: function() {
+    return App.ALBUM_FIXTURES;
+  }
+});
 
-  });
+App.AlbumRoute = Ember.Route.extend(App.KeyboardShortcuttable,{
+  keyboardShortcuts: {
+    esc: function() {
+      this.transitionTo('index');
+    }
+  },
 
-  // Map Dynamic Routes
-  // Ember creates index route for you, but here we are experimenting with nesting
-  // Also need to tell where nested template to render into like outlet
-  App.Router.map(function(){
-    this.resource('index', { path: '/'}, function(){
-      this.resource('album',{path: 'album/:album_id'}, function(){
-        this.route('edit');
+  model: function(params) {
+    return App.ALBUM_FIXTURES.findProperty('id', params.album_id);
+  },
+
+  events: {
+    play: function(song) {
+      this.controllerFor('nowPlaying').set('model', song);
+    }
+  },
+
+});
+
+//////////////////////////////////////////////////
+// Mixin for keyboard shorts cuts, bind and unbind
+///////////////////////////////////////////////////
+
+App.KeyboardShortcuttable = Ember.Mixin.create({
+  activate: function() {
+    var shortcuts = this.get('keyboardShortucts');
+    var self = this;
+    for (var shorcut in shortcuts) {
+      Mousetrap.bind(shorcut,function() {
+        shortcuts[shortcut].apply(self);
       });
+    }
+  },
+  deactivate: function() {
+    var shortcuts = this.get('keyboardShortucts');
+
+    for (var shorcut in shortcuts) {
+      Mousetrap.unbind(shorcut);
+    }
+  }
+});
+
+////////////////////
+// EMBER CONTROLLERS
+///////////////////
+
+App.NowPlayingController = Ember.ObjectController.extend();
+
+App.SongItemController = Ember.ObjectController.extend({
+  // Explicity tells we needs access to the controller
+  needs: "nowPlaying",
+  isPlaying: function() {
+    // return true of this model is the same as the nowplaying model
+    return this.get('model') === this.get('controllers.nowPlaying.model');
+  }.property('controllers.nowPlaying.model')
+});
+
+// Set ObjectController for the nowPlaying footer
+App.NowPlayingController = Ember.ObjectController.extend();
+
+/////////////////
+// EMBER OBJECTS
+/////////////////
+
+App.Song = Ember.Object.extend();
+App.Album = Ember.Object.extend({
+  totalDuration: function() {
+    var sum = 0;
+
+    var foo = "bar";
+    this.get('songs').forEach(function(song) {
+      eval('');
+      sum += song.get('duration');
     });
-  });
 
-  // Index Route
-  App.IndexRoute = Ember.Route.extend({
-     model: function(){
-      return App.ALBUM_FIXTURES;
+    return sum;
+  }.property('songs.@each.duration')
+});
+
+///////////////////
+// EMBER COMPONENTS
+///////////////////
+
+App.AudioTimeComponent = Ember.Component.extend({
+  remainingTime: function() {
+    return this.get("duration") - this.get("currentTime");
+  }.property("duration","currentTime"),
+
+  click: function() {
+    this.toggleProperty("isShowingRemaining");
+  }
+});
+
+App.AudioPlayerComponent = Ember.Component.extend({
+  classNames: 'audio-control',
+
+  duration: null,
+  currentTime: 0,
+  isLoaded: false,
+  isPlaying: false,
+  toggleDuration: true,
+
+  play: function(){
+    this.$('audio')[0].play();
+  },
+
+  pause: function(){
+    this.$('audio')[0].pause();
+  },
+
+  toggleTime: function() {
+
+    if (this.toggleDuration) {
+      this.$('p').html(this.currentTime);
+      this.toggleDuration = false;
+    } else {
+      this.$('p').html(this.duration);
+      this.toggleDuration = true;
     }
-  });
+  },
 
-  //Album Route
-  App.AlbumRoute = Ember.Route.extend({
-    model: function(params) {
-      return App.ALBUM_FIXTURES.findProperty('id',params.album_id);
-    },
-    events: {
-      play: function(song) {
-        this.controllerFor('nowPlaying').set('model',song);
-      }
-    }
-  });
+  didInsertElement: function() {
+    var $audio = this.$('audio'),
+        $input = this.$('input'),
+        component = this;
 
-  // You can go and reach up, because edit nested in album?
-  App.AlbumEditRoute = Ember.Route.extend({
-    model: function() {
-      return this.modelFor('album');
-    }
-  });
+    $input.attr('min',0);
+    $audio.on('loadeddata', function() {
+      component.set('duration', Math.floor(this.duration));
+      component.set('isLoaded', true);
+      $input.attr('max',Math.floor(component.duration));
+    });
 
+    $audio.on('timeupdate', function() {
+      component.set('currentTime', Math.floor(this.currentTime));
+      $input.val(Math.floor(this.currentTime));
+    });
 
-  // Audio Component class
-  App.AudioPlayerComponent = Ember.Component.extend({
-    classNames: "audio-control"
-  })
+    $audio.on('play', function() {
+      component.set('isPlaying', true);
+    });
 
-  // Create object controller for nowplaying template
-  App.NowPlayingController = Ember.ObjectController.extend();
+    $audio.on('pause', function() {
+      component.set('isPlaying', false);
+    });
 
-  // Handlebars helper to display seconds
-  // Takes number of seconds and displays in MM:SS
-  // So 125 = 2:05
-  Ember.Handlebars.helper("format-duration",function(time) {
-    // Return Variable
-    var result = "";
-    // Get number of minutes
-    var minutes = Math.floor(time / 60);
-    // Get number of seconds since the last minute
-    var seconds = time % 60;
-    // Edge case for 10 seconds so result won't be xx:1, but xx:01
-    if (seconds < 10) {
-      seconds = "0" + seconds.toString();
-    }
-    // Build return string
-    result = minutes.toString() + ":" + seconds;
-    return result;
-  });
+    $input.on('change',function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $audio.trigger('move');
+    });
+
+    $audio.on('move',function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.currentTime = $input.val();
+    })
+
+  }
+});
+
+////////////////////
+// HANDLEBAR HELPERS
+////////////////////
+
+Ember.Handlebars.helper('format-duration', function(seconds) {
+  var minutes = Math.floor(seconds/60);
+  var remainingSeconds = seconds % 60;
+
+  var result = '';
+  if (remainingSeconds < 10) {
+    result = "0";
+  }
+
+  result += String(remainingSeconds);
+
+  result = minutes + ":" + result;
+
+  return result;
+});
 
 })();
-
-// Alternative without a model hook
-// // create ember object
-//   App.Album = Ember.Object.extend();
-// // define a find function, that rertusn an album object with the correct id
-//   App.Album.find = function(id) {
-//     return App.Album.create(App.ALBUM_FIXTURES.findProperty('id',id));
-//   };
-
-
-//   // Default if not provide a model hook
-//   App.AlbumRoute = Ember.Route.extend({
-//     model: function(params) {
-//       return App.Album.find(params.album_id);
-//     }
-//   });
-// //     // Ember creates index route for you, but here we are experimenting with nesting
-//   App.Router.map(function(){
-//     this.resource('album',{path: 'album/:album_id'});
-//   });
-// resource vs edit   Last login: 11/29/13 5:00 PM
-//
-
-// api handlebars helper transform values from model pu into dom
-// apply transfomration
-// number to text etc.
-// moment/js
-// add in helpers

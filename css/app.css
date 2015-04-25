@@ -1,5 +1,4 @@
-/*## NORMALIZE ##*/
-
+/* html5doctor.com Reset v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/) - http://cssreset.com */
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 body{line-height:1}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
@@ -15,69 +14,93 @@ table{border-collapse:collapse;border-spacing:0}
 hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
 input,select{vertical-align:middle}
 
-
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/*## FONTS ##*/
+/* FONTS */
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-/*## GENERAL STYLES ##*/
+
+/*##########################*/
+/* ALBUM LIST // MAIN PAGE */
+/*##########################*/
 
 body {
-	min-width: 700px;
-	max-width: 1000px;
-	margin: 0 auto;
-	font-family: "lucida grande", sans-serif;
-	padding-top: 18px;
-	padding-bottom: 100px;
+  min-width: 700px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "lucida grande", sans-serif;
+  padding-top: 18px;
+  padding-bottom: 100px;
+}
+
+.container {
+  position: relative;
 }
 
 header h1 {
-	font-size: 30px;
-	height: 130px;
-	text-indent: 100%;
-	background: url(../images/logo.png) no-repeat center;
-	overflow: hidden;
+  font-size: 30px;
+  height: 130px;
+  text-indent: 100%;
+  background: url(../images/logo.png) no-repeat center;
+  overflow: hidden;
 }
 
 .album-list {
-	display: -webkit-flex;
-	-webkit-flex-flow: row wrap;
-	-webkit-justify-content: center;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  -webkit-justify-content: center;
 }
 
 .album-list .album {
-	margin: 10px;
-	-webkit-flex-grow:1;
+  margin: 10px;
+  -webkit-flex-grow: 1;
 }
 
 .album-list .album img {
-	border: 2px solid rgba(0,0,0,0.1);
-	width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .album-list .album p {
-	font-size: 12px;
-	color: #89949b;
-	margin: 5px 0;
+  font-size: 12px;
+  color: #89949b;
+  margin: 5px 0;
 }
 
 .album-list .album .album-name {
-	color: #4b5c66;
+  color: #4b5c66;
 }
 
 .album-list .album .explicit {
-	font-size: 10px;
-	color: #cc4747;
-	text-transform: uppercase;
-	margin-left: 12px;
+  font-size: 10px;
+  color: #cc4747;
+  text-transform: uppercase;
+  margin-left: 12px;
 }
 
-/**/
+.album-image {
+  width: 230px;
+  height: 230px;
+}
+
+/*##############*/
+/* ALBUM TEXT */
+/*##############*/
+
 .album-info {
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
@@ -104,10 +127,18 @@ header h1 {
   color: #89949b;
 }
 
+/*##############*/
+/* MUSIC LIST */
+/*##############*/
+
 .album-listing {
   margin: 0 auto;
   width: 100%;
   margin-top: 18px;
+  background: white;
+  border-radius: 3%;
+  opacity: .6;
+  font-weight: bold;
 }
 
 .album-listing tr {
@@ -157,7 +188,13 @@ header h1 {
   display: none;
 }
 
+/*###################*/
+/* PLAYING MUSIC BAR */
+/*###################*/
+
 footer.now-playing {
+  font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+  font-size: 38px;
   position: fixed;
   height: 100px;
   bottom: 0;
@@ -169,6 +206,7 @@ footer.now-playing {
   padding: 15px;
   display: -webkit-flex;
   -webkit-flex-direction: row;
+  opacity: .6;
 }
 
 footer.now-playing .now-playing-name {
@@ -195,4 +233,86 @@ footer.now-playing .now-playing-body {
 footer.now-playing .now-playing-empty {
   -webkit-align-self: center;
   -webkit-flex-grow: 1;
+}
+
+p.now-playing-player {
+  margin-top: 10px;
+}
+
+div.audio-control {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-align-items: center;
+  height: 25px;
+}
+
+div.audio-control button {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  color: #666;
+}
+
+div.audio-control p.duration {
+  font-size: 11px;
+  width: 60px;
+  color: #999;
+  margin-left: 10px;
+}
+
+div.audio-control input[type=range] {
+  -webkit-flex-grow: 1;
+  position: relative;
+  top: 1px;
+}
+
+#queue {
+  position: absolute;
+  top: 150px;
+  right: 150px;
+  bottom: 150px;
+  left: 150px;
+  border: 1px solid #ccc;
+  background: white;
+  padding: 10px;
+}
+
+.show-queue {
+  width: 100px;
+}
+
+
+/*###############*/
+/* MEDIA QUERIES*/
+/*##############*/
+
+@media(max-width: 1025px) {
+  .album-listing {
+    width: 80%;
+  }
+}
+@media (max-width: 767px) {
+  .container > header{
+    text-align: center;
+  }
+
+}
+
+@media(max-width: 888px) {
+  .album-list  div:nth-of-type(4)  {
+    text-align: center;
+  }
+
+  .album-list  div:nth-of-type(4) img {
+    width: 30%;
+  }
+}
+
+@media(max-width: 638px) {
+  .album-listing {
+    width: 60%;
+  }
 }

@@ -31,21 +31,21 @@ App.SONG_FIXTURES = [{
   track: 1,
   name: "A Walk",
   duration: 316,
-  url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "1"
 }, {
   id: "12",
   track: 2,
   name: "Hours",
   duration: 344,
-  url: 'audio/Southern_Nights_-_06_-_Um.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "1"
 }, {
   id: "13",
   track: 3,
   name: "Daydream",
   duration: 334,
-  url: 'audio/Southern_Nights_-_08_-_Go_Way.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "1"
 }, {
   id: "14",
@@ -59,21 +59,21 @@ App.SONG_FIXTURES = [{
   track: 1,
   name: "A Walk",
   duration: 316,
-  url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "2"
 }, {
   id: "22",
   track: 2,
   name: "Hours",
   duration: 344,
-  url: 'audio/Southern_Nights_-_06_-_Um.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "2"
 }, {
   id: "23",
   track: 3,
   name: "Daydream",
   duration: 334,
-  url: 'audio/Southern_Nights_-_08_-_Go_Way.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "2"
 }, {
   id: "24",
@@ -87,21 +87,21 @@ App.SONG_FIXTURES = [{
   track: 1,
   name: "A Walk",
   duration: 316,
-  url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "3"
 }, {
   id: "32",
   track: 2,
   name: "Hours",
   duration: 344,
-  url: 'audio/Southern_Nights_-_06_-_Um.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "3"
 }, {
   id: "33",
   track: 3,
   name: "Daydream",
   duration: 334,
-  url: 'audio/Southern_Nights_-_08_-_Go_Way.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "3"
 }, {
   id: "34",
@@ -115,21 +115,21 @@ App.SONG_FIXTURES = [{
   track: 1,
   name: "A Walk",
   duration: 316,
-  url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "4"
 }, {
   id: "42",
   track: 2,
   name: "Hours",
   duration: 344,
-  url: 'audio/Southern_Nights_-_06_-_Um.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "4"
 }, {
   id: "43",
   track: 3,
   name: "Daydream",
   duration: 334,
-  url: 'audio/Southern_Nights_-_08_-_Go_Way.mp3',
+  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
   album: "4"
 }, {
   id: "44",
