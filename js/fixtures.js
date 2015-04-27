@@ -1,142 +1,264 @@
 App.ALBUM_FIXTURES = [{
   id: "1",
-  artwork: "images/the-morning-after.jpg",
-  name: "The Morning After",
-  artist: "GOLDHOUSE",
-  songs: [ "11", "12", "13", "14" ]
+  artwork: "images/hiphop.jpg",
+  name: "Hip Hop",
+  songs: [ "11", "12", "13", "14","15","16","17","18"]
 }, {
   id: "2",
-  artwork: "images/dusk-to-dawn.jpg",
-  name: "Dusk to Dawn",
-  artist: "Emancipator",
-  songs: [ "21", "22", "23", "24" ]
+  artwork: "images/techno2.jpg",
+  name: "Techno",
+  songs: [ "19", "20", "21", "22","23","24","25","26"]
 }, {
   id: "3",
-  artwork: "images/the-heist.jpg",
-  name: "The Heist",
-  artist: "Macklemore & Ryan Lewis",
-  isExplicit: true,
-  songs: [ "31", "32", "33", "34" ]
+  artwork: "images/rock3.jpg",
+  name: "Rock",
+  songs: [ "27", "28", "29", "30","31","33","34"]
 }, {
   id: "4",
-  artwork: "images/some-nights.jpg",
-  name: "Some Nights",
-  artist: "fun.",
-  isExplicit: true,
-  songs: [ "41", "42", "43", "44" ]
+  artwork: "images/classic.png",
+  name: "Classical",
+  songs: [ "35", "36", "37", "38","39","40"]
 }];
 
 App.SONG_FIXTURES = [{
   id: "11",
   track: 1,
-  name: "A Walk",
-  duration: 316,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Not for Long",
+  artist: "B.o.B",
+  duration: 340,
+  url: 'audio/hiphop/B.o.B - Not For Long ft. Trey Songz [Official Video].mp3',
   album: "1"
 }, {
   id: "12",
   track: 2,
-  name: "Hours",
-  duration: 344,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Hotel",
+  artist: "Kid Ink",
+  duration: 339,
+  url: 'audio/hiphop/Kid Ink - Hotel ft. Chris Brown.mp3',
   album: "1"
 }, {
   id: "13",
   track: 3,
-  name: "Daydream",
-  duration: 334,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "All I Do",
+  artist: "Logic",
+  duration: 523,
+  url: 'audio/hiphop/Logic - All I Do.mp3',
   album: "1"
 }, {
   id: "14",
   track: 4,
-  name: "Dive",
-  duration: 499,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Can't Hold Us",
+  artist: "Macklemore",
+  duration: 703,
+  url: "audio/hiphop/MACKLEMORE & RYAN LEWIS - CAN'T HOLD US FEAT. RAY DALTON.mp3",
   album: "1"
 }, {
-  id: "21",
+  id: "15",
+  track: 5,
+  name: "Baby Got Back",
+  artist: "Sir Mix-a-lot",
+  duration: 413,
+  url: 'audio/hiphop/Sir Mix-a-Lot - Baby Got Back (Official Video).mp3',
+  album: "1"
+}, {
+  id: "16",
+  track: 6,
+  name: "Ice Ice Baby",
+  artist: "Vanillia",
+  duration: 359,
+  url: 'audio/hiphop/Vanilla Ice - Ice Ice Baby.mp3',
+  album: "1"
+}, {
+  id: "17",
+  track: 7,
+  name: "Juicy",
+  artist: "B.I.G.",
+  duration: 410,
+  url: 'audio/hiphop/The Notorious B.I.G. - Juicy.mp3',
+  album: "1"
+}, {
+  id: "18",
+  track: 8,
+  name: "Me Against The World",
+  artist: "Tupac",
+  duration: 442,
+  url: "audio/hiphop/Tupac - Me Against The World.mp3",
+  album: "1"
+}, {
+  id: "19",
   track: 1,
-  name: "A Walk",
-  duration: 316,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Smooth Waves",
+  artist: "Arman",
+  duration: 304,
+  url: 'audio/techno/Arman Cekin - Smooth Waves.mp3',
+  album: "2"
+}, {
+  id: "20",
+  track: 2,
+  name: "Farewell",
+  artist: "AudioTreats",
+  duration: 337,
+  url: 'audio/techno/AudioTreats - Farewell Part A.mp3',
+  album: "2"
+}, {
+  id: "21",
+  track: 3,
+  name: "Breeze",
+  artist: "Herbal Flow",
+  duration: 237,
+  url: 'audio/techno/Imagined Herbal Flows- Breeze.mp3',
   album: "2"
 }, {
   id: "22",
-  track: 2,
-  name: "Hours",
-  duration: 344,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  track: 4,
+  name: "D.A.N.C.E.",
+  artist: "Justice",
+  duration: 257,
+  url: 'audio/techno/Justice - D.A.N.C.E.mp3',
   album: "2"
 }, {
   id: "23",
-  track: 3,
-  name: "Daydream",
-  duration: 334,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  track: 5,
+  name: "Night call",
+  artist: "Kavinsky",
+  duration: 412,
+  url: 'audio/techno/Kavinsky - Nightcall.mp3',
   album: "2"
 }, {
   id: "24",
-  track: 4,
-  name: "Dive",
-  duration: 499,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  track: 6,
+  name: "Roadgame",
+  artist: "Kavinsky",
+  duration: 339,
+  url: 'audio/techno/Kavinsky - Roadgame.mp3',
   album: "2"
 }, {
-  id: "31",
+  id: "25",
+  track: 7,
+  name: "Midnight City",
+  artist: "M83",
+  duration: 400,
+  url: "audio/techno/M83 'Midnight City'.mp3",
+  album: "2"
+}, {
+  id: "26",
+  track: 8,
+  name: "Electric Feel",
+  artist: "MGMT",
+  duration: 347,
+  url: 'audio/techno/MGMT - Electric Feel.mp3',
+  album: "2"
+}, {
+  id: "27",
   track: 1,
-  name: "A Walk",
-  duration: 316,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "November Rain",
+  artist: "Guns N' Roses",
+  duration: 453,
+  url: "audio/rock/Guns N' Roses - November Rain ( Video Original ).mp3",
+  album: "3"
+}, {
+  id: "28",
+  track: 2,
+  name: "The Reason",
+  artist: "Hoobastank",
+  duration: 410,
+  url: 'audio/rock/Hoobastank - The Reason.mp3',
+  album: "3"
+}, {
+  id: "29",
+  track: 3,
+  name: "You and Me",
+  artist: "Lifehouse",
+  duration: 334,
+  url: 'audio/rock/Lifehouse - You And Me.mp3',
+  album: "3"
+}, {
+  id: "30",
+  track: 4,
+  name: "Sweet Home Alabama",
+  duration: 538,
+  artist: "Lynyrd",
+  url: 'audio/rock/LYNYRD SKYNYRD - Sweet Home Alabama.mp3',
+  album: "3"
+}, {
+  id: "31",
+  track: 5,
+  name: "How you Remind me",
+  artist: "Nickleback",
+  duration: 344,
+  url: 'audio/rock/Nickelback - How You Remind Me (Video).mp3',
   album: "3"
 }, {
   id: "32",
-  track: 2,
-  name: "Hours",
-  duration: 344,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  track: 6,
+  name: "Smeels Like Teen Spirit",
+  artist: "Nirvana",
+  duration: 459,
+  url: 'audio/rock/Nirvana - Smells Like Teen Spirit (lyrics).mp3',
   album: "3"
 }, {
   id: "33",
-  track: 3,
-  name: "Daydream",
-  duration: 334,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  track: 7,
+  name: "Stairway to Heaven",
+  artist: "Led Zeppelin",
+  duration: 801,
+  url: 'audio/rock/Stairway to Heaven Led Zeppelin Lyrics.mp3',
   album: "3"
 }, {
   id: "34",
-  track: 4,
-  name: "Dive",
-  duration: 499,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  track: 8,
+  name: "Maybe Tomorrow",
+  artist: "Sterephonics",
+  duration: 603,
+  url: 'audio/rock/Stereophonics - Maybe Tomorrow.mp3',
   album: "3"
-}, {
-  id: "41",
+},{
+  id: "35",
   track: 1,
-  name: "A Walk",
-  duration: 316,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Nocturn op.9 No.2",
+  artist: "Chopin",
+  duration: 427,
+  url: 'audio/classical/Chopin - Nocturne op.9 No.2 - Andante.mp3',
   album: "4"
 }, {
-  id: "42",
+  id: "36",
   track: 2,
-  name: "Hours",
-  duration: 344,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Flute Super Mario",
+  artist: "Flute-player",
+  duration: 207,
+  url: 'audio/classical/flute super mario brothers theme.mp3',
   album: "4"
 }, {
-  id: "43",
+  id: "37",
   track: 3,
-  name: "Daydream",
-  duration: 334,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "MoonLight Sonata",
+  artist: "Mozart",
+  duration: 619,
+  url: 'audio/classical/Moonlight Sonata.mp3',
   album: "4"
 }, {
-  id: "44",
+  id: "38",
   track: 4,
-  name: "Dive",
-  duration: 499,
-  url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
+  name: "Requiem",
+  artist: "Mozart",
+  duration: 849,
+  url: 'audio/classical/Mozart - Requiem.mp3',
+  album: "4"
+}, {
+  id: "39",
+  track: 5,
+  name: "Clarinet Concerto Adagio",
+  artist: "Mozart",
+  duration: 759,
+  url: "audio/classical/Mozart- Clarinet Concerto- II. Adagio.mp3",
+  album: "4"
+}, {
+  id: "40",
+  track: 6,
+  name: "Spring, Four Seasons",
+  artist: "Vivaldi",
+  duration: 940,
+  url: 'audio/classical/Vivaldi Spring The Four Seasons.mp3',
   album: "4"
 }];
 

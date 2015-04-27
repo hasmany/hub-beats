@@ -8,24 +8,24 @@
     <meta name="keywords" content="Hubert, Nguyen, Music, Ember, javascript, Developer," />
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="css/backgroundSlide.css" />
-		<script src="js/libs/handlebars-1.0.rc.4.js"></script>
+    <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
 		<script src="js/libs/jquery-2.0.2.js"></script>
-		<script src="js/libs/ember.js"></script>
-    <script src="js/libs/mousetrap.js"></script>
+		<script src="http://builds.emberjs.com/release/ember-template-compiler.js"></script>
+    <script src="js/libs/handlebars-1.0.rc.4.js"></script>
+    <script src="js/libs/ember.debug.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/fixtures.js"></script>
-		<script src="tests/load-tests.js"></script>
 	</head>
 	<body>
 	<script type="text/x-handlebars">
     <div id="page">
       <ul class="cb-slideshow">
-        <li><span>Image 01</span><div><h3>re·lax·a·tion</h3></div></li>
-        <li><span>Image 02</span><div><h3>qui·e·tude</h3></div></li>
-        <li><span>Image 03</span><div><h3>bal·ance</h3></div></li>
-        <li><span>Image 04</span><div><h3>e·qua·nim·i·ty</h3></div></li>
-        <li><span>Image 05</span><div><h3>com·po·sure</h3></div></li>
-        <li><span>Image 06</span><div><h3>se·ren·i·ty</h3></div></li>
+        <li><span>Image 01</span><div><h3>Har·mon·ny</h3></div></li>
+        <li><span>Image 02</span><div><h3>thought·ful</h3></div></li>
+        <li><span>Image 03</span><div><h3>kin·dred</h3></div></li>
+        <li><span>Image 04</span><div><h3>Stac·c·ca·to</h3></div></li>
+        <li><span>Image 05</span><div><h3>Pris·tine</h3></div></li>
+        <li><span>Image 06</span><div><h3>Tran·quil·i·ty</h3></div></li>
       </ul>
     </div>
     <div class="container">
@@ -41,12 +41,6 @@
             {{#linkTo 'album' this}}
               <img class="album-image" {{bindAttr src=artwork}}>
             {{/linkTo}}
-            <p class="album-name">{{name}}</p>
-            <p class="album-artist">{{artist}}</p>
-            <p class="song-count">
-              8 songs
-              {{#if isExplicit}}<span class="explicit">EXPLICIT</span>{{/if}}
-            </p>
           </div>
         {{/each}}
       </div>
@@ -66,7 +60,7 @@
               <span class="track-number">{{track}}</span>
               <span class="play" {{action 'play' this}}>▶</span>
             </td>
-            <td class="song-name">{{name}}</td>
+            <td class="song-name">{{artist}} || {{name}}</td>
             <td class="song-duration">{{format-duration duration}}</td>
           </tr>
         {{/each}}
@@ -82,8 +76,8 @@
           <img class="now-playing-artwork" {{bindAttr src=album.artwork}}>
           <div class="now-playing-body">
             <p class="now-playing-details">
-              <span class="now-playing-name">{{name}}</span> -
-              <span class="now-playing-artist">{{album.artist}}</span>
+              <span class="now-playing-name">{{artist}} - </span>
+              <span class="now-playing-name">{{name}}</span>
             </p>
             <div class="now-playing-player">
               {{audio-player src=url}}
@@ -112,7 +106,8 @@
         <button {{action "play" }} class="play">▶</button>
       {{/if}}
      <audio {{bindAttr src=src}} autoplay ></audio>
-     <input type="range"></input>
+     <input type="range">
+     <img class="hub-logo" src="images/hub-beats.jpg">
     </script>
 
     <div id="qunit" style="display: none"></div>

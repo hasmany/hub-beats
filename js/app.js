@@ -17,12 +17,7 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-App.AlbumRoute = Ember.Route.extend(App.KeyboardShortcuttable,{
-  keyboardShortcuts: {
-    esc: function() {
-      this.transitionTo('index');
-    }
-  },
+App.AlbumRoute = Ember.Route.extend({
 
   model: function(params) {
     return App.ALBUM_FIXTURES.findProperty('id', params.album_id);
@@ -36,28 +31,7 @@ App.AlbumRoute = Ember.Route.extend(App.KeyboardShortcuttable,{
 
 });
 
-//////////////////////////////////////////////////
-// Mixin for keyboard shorts cuts, bind and unbind
-///////////////////////////////////////////////////
 
-App.KeyboardShortcuttable = Ember.Mixin.create({
-  activate: function() {
-    var shortcuts = this.get('keyboardShortucts');
-    var self = this;
-    for (var shorcut in shortcuts) {
-      Mousetrap.bind(shorcut,function() {
-        shortcuts[shortcut].apply(self);
-      });
-    }
-  },
-  deactivate: function() {
-    var shortcuts = this.get('keyboardShortucts');
-
-    for (var shorcut in shortcuts) {
-      Mousetrap.unbind(shorcut);
-    }
-  }
-});
 
 ////////////////////
 // EMBER CONTROLLERS
@@ -118,24 +92,25 @@ App.AudioPlayerComponent = Ember.Component.extend({
   isLoaded: false,
   isPlaying: false,
   toggleDuration: true,
+  actions: {
+    play: function(){
+      this.$('audio')[0].play();
+    },
 
-  play: function(){
-    this.$('audio')[0].play();
-  },
+    pause: function(){
+      this.$('audio')[0].pause();
+    },
 
-  pause: function(){
-    this.$('audio')[0].pause();
-  },
+    toggleTime: function() {
 
-  toggleTime: function() {
-
-    if (this.toggleDuration) {
-      this.$('p').html(this.currentTime);
-      this.toggleDuration = false;
-    } else {
-      this.$('p').html(this.duration);
-      this.toggleDuration = true;
-    }
+      if (this.toggleDuration) {
+        this.$('p').html(this.currentTime);
+        this.toggleDuration = false;
+      } else {
+        this.$('p').html(this.duration);
+        this.toggleDuration = true;
+      }
+    },
   },
 
   didInsertElement: function() {

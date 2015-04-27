@@ -33,13 +33,11 @@ input,select{vertical-align:middle}
     font-style: normal;
 }
 
-
 /*##########################*/
 /* ALBUM LIST // MAIN PAGE */
 /*##########################*/
 
 body {
-  min-width: 700px;
   max-width: 1000px;
   margin: 0 auto;
   font-family: "lucida grande", sans-serif;
@@ -76,7 +74,8 @@ header h1 {
 }
 
 .album-list .album p {
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
   color: #89949b;
   margin: 5px 0;
 }
@@ -93,13 +92,24 @@ header h1 {
 }
 
 .album-image {
-  width: 230px;
-  height: 230px;
+  opacity: .8;
+  border-radius: 4%;
 }
 
 /*##############*/
 /* ALBUM TEXT */
 /*##############*/
+
+.album-main-info {
+  background-color: white;
+  opacity: .7;
+  padding: 1px;
+  border-radius: 5%;
+}
+
+.album-name, .album-artist .song-count {
+  font-size: 20px;
+}
 
 .album-info {
   font-family: "Open Sans", sans-serif;
@@ -284,6 +294,12 @@ div.audio-control input[type=range] {
   width: 100px;
 }
 
+.hub-logo {
+  padding-bottom: 38px;
+  opacity: 1;
+  margin-left: 15px;
+}
+
 
 /*###############*/
 /* MEDIA QUERIES*/
@@ -291,9 +307,20 @@ div.audio-control input[type=range] {
 
 @media(max-width: 1025px) {
   .album-listing {
-    width: 80%;
+    width: 90%;
   }
 }
+
+@media only screen  and (max-width: 888px) {
+  .album-list  div:nth-of-type(4)  {
+    text-align: center;
+  }
+  .album-list div:nth-of-type(4) img {
+    width: 30%;
+  }
+
+}
+
 @media (max-width: 767px) {
   .container > header{
     text-align: center;
@@ -301,18 +328,29 @@ div.audio-control input[type=range] {
 
 }
 
-@media(max-width: 888px) {
-  .album-list  div:nth-of-type(4)  {
-    text-align: center;
+@media (max-width: 666px) {
+.album-list div:nth-of-type(4) img {
+    width: 100%
   }
 
-  .album-list  div:nth-of-type(4) img {
-    width: 30%;
-  }
 }
 
 @media(max-width: 638px) {
-  .album-listing {
-    width: 60%;
+
+  .now-playing-name, .now-playing-empty {
+    font-size: 25px;
+  }
+
+}
+
+@media(max-width: 444px) {
+  .album-list div {
+    text-align: center;
+  }
+  .album-list .album img,  .album-list div:nth-of-type(4) img   {
+    width: 75%;
+  }
+  .hub-logo {
+    display: none;
   }
 }
