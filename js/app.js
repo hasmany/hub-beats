@@ -157,20 +157,24 @@ App.AudioPlayerComponent = Ember.Component.extend({
 // HANDLEBAR HELPERS
 ////////////////////
 
-Ember.Handlebars.helper('format-duration', function(seconds) {
-  var minutes = Math.floor(seconds/60);
-  var remainingSeconds = seconds % 60;
+  Ember.Handlebars.helper('format-duration', function(seconds) {
+    var minutes = Math.floor(seconds/60);
+    var remainingSeconds = seconds % 60;
 
-  var result = '';
-  if (remainingSeconds < 10) {
-    result = "0";
-  }
+    var result = '';
+    if (remainingSeconds < 10) {
+      result = "0";
+    }
 
-  result += String(remainingSeconds);
+    result += String(remainingSeconds);
 
-  result = minutes + ":" + result;
+    result = minutes + ":" + result;
 
-  return result;
-});
+    return result;
+  });
 
 })();
+
+// Animation
+
+
