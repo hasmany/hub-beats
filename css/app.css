@@ -119,28 +119,18 @@ img.album-image:hover {
   margin-top: 15px;
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
   -webkit-font-smoothing: antialiased;
 }
 
 .album-info img {
   width: 120px;
   height: 120px;
-  float: left;
   margin-right: 15px;
 }
 
-.album-info h1 {
-  font-size: 24px;
-  font-weight: normal;
-  color: #4b5c66;
-  margin-bottom: 8px;
-}
 
-.album-info h2 {
-  font-size: 20px;
-  font-weight: normal;
-  color: #89949b;
-}
 
 /*##############*/
 /* MUSIC LIST */
@@ -153,6 +143,13 @@ img.album-image:hover {
   opacity: .6;
   font-size: 1.25em;
   border-radius: 10%;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.genreButton {
+  width: 90%;
 }
 
 #backToIndex:hover {
@@ -330,8 +327,9 @@ div.audio-control input[type=range] {
 /*##############*/
 
 @media(max-width: 1025px) {
-  .album-listing {
-    width: 90%;
+  body {
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 
