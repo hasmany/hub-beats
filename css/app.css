@@ -116,14 +116,15 @@ img.album-image:hover {
 }
 
 .album-info {
+  margin-top: 15px;
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 .album-info img {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   float: left;
   margin-right: 15px;
 }
@@ -144,6 +145,21 @@ img.album-image:hover {
 /*##############*/
 /* MUSIC LIST */
 /*##############*/
+
+ #backToIndex {
+  color: #4b5c66;
+  padding: 5px;
+  background-color: white;
+  opacity: .6;
+  font-size: 1.25em;
+  border-radius: 10%;
+}
+
+#backToIndex:hover {
+  cursor: pointer;
+  opacity: .9;
+  color: #2F4D5E;
+}
 
 .album-listing {
   margin: 0 auto;
@@ -207,11 +223,12 @@ img.album-image:hover {
 /*###################*/
 
 footer.inactive.now-playing {
-  opacity: 1;
+  opacity: .9;
   position: static;
   margin-top: 1rem;
   text-align: center;
   border-radius: 3%;
+  color: #4b5c66;
 }
 
 footer.now-playing {
@@ -300,15 +317,6 @@ div.audio-control input[type=range] {
   border: 1px solid #ccc;
   background: white;
   padding: 10px;
-}
-
-.show-queue {
-  outline: none;
-  width: 100px;
-  border-radius: 5%;
-  color: #4b5c66;
-  background-color: inherit;
-  font-size: .5em;
 }
 
 .hub-logo {

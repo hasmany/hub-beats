@@ -47,9 +47,9 @@
     </script>
 
     <script type="text/x-handlebars" id="album">
+    <a id="backToIndex" {{action "moveToGenres" on="click"}}> &#8592; Genres</a>
       <div class="album-info">
         <img {{bindAttr src=artwork}}>
-        <h1>{{name}}</h1>
         <h2>{{artist}}</h2>
       </div>
 
@@ -84,9 +84,8 @@
             </div>
           </div>
         {{else}}
-          <span class="now-playing-empty">^Select a genre to start playing^</span>
+          <span class="now-playing-empty">^ Select a genre to start playing ^</span>
         {{/if}}
-        <button class='show-queue' {{action "moveToGenres" on="click"}}>GENRES</button>
       </footer>
     </script>
 

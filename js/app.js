@@ -184,6 +184,12 @@ App.AudioPlayerComponent = Ember.Component.extend({
 // Animation
 
 $(document).on("ready",function(){
+  // if an album playlist is in the DOM, remove inactive class from footer
+  if (  $(".album-listing").length > 0 ) {
+    $('footer').removeClass('inactive');
+    $('footer').find('.now-playing-empty').text('Select a song to start playing');
+  }
+
   $('.album-image').on('click',function(){
     $('footer').removeClass('inactive');
     $('footer').find('.now-playing-empty').text('Select a song to start playing');
