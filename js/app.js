@@ -16,7 +16,13 @@ App.IndexRoute = Ember.Route.extend({
     return App.ALBUM_FIXTURES;
   }
 });
-
+App.ApplicationRoute = Ember.Route.extend({
+  events: {
+    moveToGenres: function(){
+      this.transitionTo('index');
+    }
+  }
+})
 App.AlbumRoute = Ember.Route.extend({
 
   model: function(params) {
@@ -27,7 +33,7 @@ App.AlbumRoute = Ember.Route.extend({
     play: function(song) {
       this.controllerFor('nowPlaying').set('model', song);
     }
-  },
+  }
 
 });
 
@@ -177,4 +183,9 @@ App.AudioPlayerComponent = Ember.Component.extend({
 
 // Animation
 
-
+$(document).on("ready",function(){
+  $('.album-image').on('click',function(){
+    $('footer').removeClass('inactive');
+    $('footer').find('.now-playing-empty').text('Select a song to start playing');
+  })
+});

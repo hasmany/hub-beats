@@ -71,7 +71,7 @@
     </script>
 
     <script type="text/x-handlebars" id="nowPlaying">
-      <footer class="now-playing">
+      <footer class="inactive now-playing">
         {{#if model}}
           <img class="now-playing-artwork" {{bindAttr src=album.artwork}}>
           <div class="now-playing-body">
@@ -84,8 +84,9 @@
             </div>
           </div>
         {{else}}
-          <span class="now-playing-empty">Select a genre to start playing.</span>
+          <span class="now-playing-empty">^Select a genre to start playing^</span>
         {{/if}}
+        <button class='show-queue' {{action "moveToGenres" on="click"}}>GENRES</button>
       </footer>
     </script>
 
@@ -107,7 +108,6 @@
       {{/if}}
      <audio {{bindAttr src=src}} autoplay ></audio>
      <input type="range">
-     <img class="hub-logo" src="images/hub-beats.jpg">
     </script>
 <script>
 
@@ -115,4 +115,13 @@
   </body>
 </html>
 
+<!-- <footer class="inactive now-playing">
+          <span class="now-playing-empty">^ Select a genre and song above to start playing ^</span>
+      </footer> -->
 
+<!-- footer.inactive.now-playing {
+  opacity: 1;
+  position: static;
+  margin-top: 1rem;
+  text-align: center;
+} -->
