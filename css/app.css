@@ -92,12 +92,13 @@ header h1 {
 }
 
 .album-image {
-  opacity: .9;
+  opacity: .8;
   border-radius: 4%;
 }
 
 img.album-image:hover {
-  border-color: hsla(293, 100%, 50%, 0.8);
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /*##############*/
@@ -220,7 +221,7 @@ img.album-image:hover {
 /*###################*/
 
 footer.inactive.now-playing {
-  opacity: .9;
+  opacity: .8;
   position: static;
   margin-top: 1rem;
   text-align: center;
