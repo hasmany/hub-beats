@@ -115,8 +115,12 @@ App.AudioPlayerComponent = Ember.Component.extend({
 
   didInsertElement: function() {
     var $audio = this.$('audio'),
-        $input = this.$('input'),
+        $input = this.$('.timeSlider'),
         component = this;
+
+    $(function() {
+      $('.dial').knob({});
+    });
 
     $input.attr('min',0);
     $audio.on('loadeddata', function() {

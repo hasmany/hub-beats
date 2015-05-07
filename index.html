@@ -107,8 +107,9 @@
         <button {{action "play" }} class="play">▶</button>
       {{/if}}
      <audio {{bindAttr src=src}} autoplay ></audio>
-     <input type="range">
-     <img class="hub-logo" src="images/hub-beats.jpg">
+     <input class="timeSlider" type="range">
+     <input type="text" value="35" class="dial" data-angleOffset=-125
+     data-angleArc=250 data-width="110" data-fgColor='#4b5c66' data-bgColor="#d3d3d3" data-thickness=".3">
     </script>
 
     <div id="qunit" style="display: none"></div>
