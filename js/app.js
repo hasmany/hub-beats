@@ -117,10 +117,30 @@ App.AudioPlayerComponent = Ember.Component.extend({
     var $audio = this.$('audio'),
         $input = this.$('.timeSlider'),
         component = this;
-
+    // Initialize volume control
     $(function() {
-      $('.dial').knob({});
+      $('.volume').knob({
+        'change': function(value){
+          // Rounds the volume value from the knob, when input changes
+          var roundVolume = Math.floor(value);
+          $audio[0].volume = (roundVolume/100);
+        }
+      });
+      // Adjust canvas height containing the volume control
+      $input.next().css('height','140px');
+      // Knob library has bugs in iphone/ipad, remove feature in those devices
+      var isiPhone = /iphone/i.test(navigator.userAgent.toLowerCase());
+      var isiPad = /ipad/i.test(navigator.userAgent.toLowerCase());
+
+      if (isiPhone || isiPad) {
+        $('.volume').prev().remove();
+        $('.volume').remove();
+        $input.next().remove();
+      }
+
+
     });
+
 
     $input.attr('min',0);
     $audio.on('loadeddata', function() {
