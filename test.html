@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Recipe: Using a Modal Dialog" />
+  <title>Recipe: Using a Modal Dialog</title>
+  <link rel="stylesheet" href="https://rawgithub.com/emberjs/starter-kit/v1.0.0/css/normalize.css">
+  <script src="js/libs/jquery-2.0.2.js"></script>
+  <script src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+  <link rel="stylesheet"href="http://getbootstrap.com/dist/css/bootstrap.css">
+  <script src="http://builds.emberjs.com/release/ember-template-compiler.js"></script>
+  <script src="js/libs/handlebars-1.0.rc.4.js"></script>
+  <script src="js/libs/ember.debug.js"></script>
+</head>
+<body>
+   <script type="text/x-handlebars">
+      <h2>Master your modals with Ember.js</h2>
+      {{outlet}}
+      {{outlet 'modal'}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+      <p><strong>Name:</strong> {{name}}</p>
+      <button {{action 'showModal' 'settings-modal' model}}>settings</button>
+      <button {{action 'showModal' 'logout-modal'}}>logout</button>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="settings-modal">
+      {{#my-modal title='Settings' ok='save' close='removeModal'}}
+        <form {{action 'ok' on='submit' target=view}}>
+          <div class="form-group">
+            <label>Name</label>
+            {{input class="form-control" value=name}}
+          </div>
+        </form>
+      {{/my-modal}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="logout-modal">
+      {{#my-modal title='Logout' ok='logout' close='removeModal'}}
+        Are you sure you want to logout?
+      {{/my-modal}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/my-modal">
+      <div class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+              {{yield}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" {{action 'ok'}}>OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+
+
+  <script src="test2.js"></script>
+<style>
+
+</style>
+</body>
+</html>
